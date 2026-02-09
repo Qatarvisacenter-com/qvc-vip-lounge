@@ -5,74 +5,33 @@
 <title>Qatar Visa Center – SMS OTP Service</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-body {
-  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  margin: 0; padding: 0; min-height: 100vh;
-  display: flex; justify-content: center; align-items: center; color: #333;
-}
-.card {
-  background: #fff;
-  width: 95%; max-width: 480px;
-  padding: 30px; border-radius: 20px;
-  box-shadow: 0 25px 50px rgba(0,0,0,.3);
-  transform: perspective(1000px) rotateX(2deg);
-}
-.logo { text-align: center; margin-bottom: 10px; }
-.logo img { width: 120px; }
-h1 {
-  font-size: 24px; text-align: center;
-  color: maroon; font-weight: 700; margin-bottom: 5px;
-}
-.sub {
-  text-align: center; font-size: 14px;
-  color: #666; margin-bottom: 20px;
-}
-.input-box {
-  background: linear-gradient(145deg, #f9f1e7, #e7f1f9);
-  border-radius: 15px; padding: 14px;
-  margin-bottom: 15px;
-  box-shadow: 5px 5px 15px rgba(0,0,0,.2), -5px -5px 15px rgba(255,255,255,.5);
-}
-.input-box input, .input-box select {
-  width: 100%; border: none; outline: none;
-  background: transparent; font-size: 14px; font-weight: 600;
-}
-label { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 5px; display: block; }
-.services { display: flex; gap: 10px; margin-bottom: 12px; }
-.services button {
-  flex: 1; border: none; border-radius: 12px;
-  padding: 10px; cursor: pointer; font-weight: 600;
-  background: #e9ecef; transition: all 0.3s;
-}
-.services button.active { background: #0d6efd; color: #fff; }
-.calendar { display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; margin-bottom: 15px; }
-.date {
-  background: maroon; color: #fff;
-  padding: 10px; border-radius: 12px;
-  text-align: center; font-size: 13px; font-weight: 600;
-  cursor: pointer; box-shadow: 2px 2px 8px rgba(0,0,0,.3);
-}
-.date.selected { background: #a00000; transform: scale(1.1); }
-.timeslot { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
-.timeslot button {
-  flex: 1 1 30%; padding: 8px;
-  border-radius: 10px; border: none; background: #e3f2fd;
-  cursor: pointer; font-weight: 600; transition: all 0.2s;
-}
-.timeslot button.selected { background: #0d6efd; color: #fff; transform: scale(1.05); }
-.submit {
-  width: 100%; padding: 14px; border: none; border-radius: 14px;
-  background: #198754; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
-}
-.success { display: none; text-align: center; }
-.success h2 { color: #198754; }
-.whatsapp-icon {
-  display: none; margin-top: 15px;
-  justify-content: center; align-items: center; cursor: pointer;
-}
-.whatsapp-icon img { width: 40px; }
-.footer { display: none; } /* removed old footer */
+*{box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);margin:0;padding:0;min-height:100vh;display:flex;justify-content:center;align-items:center;color:#333;}
+.card{background:#fff;width:95%;max-width:500px;padding:30px;border-radius:20px;box-shadow:0 25px 50px rgba(0,0,0,.3);transform:perspective(1000px) rotateX(2deg);}
+.logo{text-align:center;margin-bottom:10px;}
+.logo img{width:120px;}
+h1{font-size:26px;text-align:center;color:maroon;font-weight:700;margin-bottom:5px;}
+.sub{text-align:center;font-size:14px;color:#666;margin-bottom:25px;}
+.input-box{background:linear-gradient(145deg,#f9f1e7,#e7f1f9);border-radius:15px;padding:14px;margin-bottom:15px;box-shadow:5px 5px 15px rgba(0,0,0,.2),-5px -5px 15px rgba(255,255,255,.5);}
+.input-box input,.input-box select{width:100%;border:none;outline:none;background:transparent;font-size:14px;font-weight:600;}
+label{font-size:13px;font-weight:600;color:#555;margin-bottom:5px;display:block;}
+.services{display:flex;gap:10px;margin-bottom:12px;}
+.services button{flex:1;border:none;border-radius:12px;padding:10px;cursor:pointer;font-weight:600;background:#e9ecef;transition:all 0.3s;}
+.services button.active{background:#0d6efd;color:#fff;}
+.calendar{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:15px;}
+.date{background:maroon;color:#fff;padding:10px;border-radius:12px;text-align:center;font-size:13px;font-weight:600;cursor:pointer;box-shadow:2px 2px 8px rgba(0,0,0,.3);transition:all 0.2s;}
+.date.selected{background:#a00000;transform:scale(1.1);}
+.timeslot{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px;}
+.timeslot button{flex:1 1 30%;padding:8px;border-radius:10px;border:none;background:#e3f2fd;cursor:pointer;font-weight:600;transition:all 0.2s;}
+.timeslot button.selected{background:#0d6efd;color:#fff;transform:scale(1.05);}
+.submit{width:100%;padding:14px;border:none;border-radius:14px;background:#198754;color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.3s;}
+.submit:hover{background:#145c32;}
+.otp-screen{display:none;text-align:center;padding:20px;background:#f7f7f7;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.2);}
+.otp-screen h2{color:#0d6efd;margin-bottom:10px;font-size:22px;}
+.otp-screen p{font-size:15px;margin-bottom:20px;}
+.whatsapp-icon{display:flex;margin:0 auto;justify-content:center;align-items:center;cursor:pointer;width:70px;height:70px;border-radius:50%;background:#25D366;box-shadow:0 5px 15px rgba(0,0,0,.3);transition:all 0.3s;position:relative;}
+.whatsapp-icon::before{content:'📩';font-size:28px;}
+.whatsapp-icon:hover{transform:scale(1.1);box-shadow:0 8px 20px rgba(0,0,0,.4);}
 </style>
 </head>
 <body>
@@ -80,20 +39,19 @@ label { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 5px; disp
   <div class="logo">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Qatar_Logo.svg/512px-Qatar_Logo.svg.png">
   </div>
-
   <h1>Welcome to Qatar Visa Center</h1>
   <div class="sub">Message Service Through QVCPAK</div>
 
   <div id="form">
     <label>Passport Number</label>
-    <div class="input-box"><input type="text" placeholder="Enter Passport Number"></div>
+    <div class="input-box"><input type="text" placeholder="HW6843113" id="passport"></div>
 
-    <label>Visa Number</label>
-    <div class="input-box"><input type="text" placeholder="Enter Visa Number"></div>
+    <label>Visa Number (12 digits)</label>
+    <div class="input-box"><input type="text" placeholder="Enter Visa Number" id="visa"></div>
 
     <label>Select Center</label>
     <div class="input-box">
-      <select>
+      <select id="center">
         <option>Islamabad</option>
         <option>Karachi</option>
       </select>
@@ -112,49 +70,43 @@ label { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 5px; disp
     <label>Select Time</label>
     <div class="timeslot" id="timeslot"></div>
 
-    <button class="submit" onclick="submitForm()">Submit</button>
+    <button class="submit" onclick="submitForm()">Find Your OTP</button>
   </div>
 
-  <div class="success" id="success">
-    <h2>✔ Thank You For Booking Your QVC Appointment</h2>
-    <p>We will reply you shortly via SMS. Kindly contact on WhatsApp now:</p>
-    <div class="whatsapp-icon" onclick="openWhatsApp()">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-    </div>
+  <div class="otp-screen" id="otpScreen">
+    <h2>🎯 Get Your Urgent OTP</h2>
+    <p>Click on the WhatsApp icon below to request your OTP instantly. Your case will be processed professionally.</p>
+    <div class="whatsapp-icon" onclick="openWhatsApp()"></div>
   </div>
 </div>
 
 <script>
-let selectedService = "normal";
-let selectedDate = "";
-let selectedTime = "";
-let calendar = document.getElementById("calendar");
-let timeslotContainer = document.getElementById("timeslot");
-
-const timeSlots = ["8:15","8:30","9:15","9:30","10:30","11:45","12:45","2:30"];
+let selectedService="normal";
+let selectedDate="";
+let selectedTime="";
+let calendar=document.getElementById("calendar");
+let timeslotContainer=document.getElementById("timeslot");
+const timeSlots=["8:15","8:30","9:15","9:30","10:30","11:45","12:45","2:30"];
 
 function service(type){
-  selectedService = type;
+  selectedService=type;
   document.querySelectorAll('.services button').forEach(b=>b.classList.remove('active'));
   document.getElementById(type).classList.add('active');
   loadDates();
-  timeslotContainer.innerHTML = "";
+  timeslotContainer.innerHTML="";
 }
 
 function loadDates(){
-  calendar.innerHTML = "";
-  let dates = [];
-  if(selectedService==="normal"){ dates = ["Mar 5","Mar 6","Mar 7","Mar 8","Mar 9"]; }
-  if(selectedService==="urgent"){ dates = ["Feb 16","Feb 18","Feb 22","Feb 25"]; }
-  if(selectedService==="sms"){ dates = ["Mar 16","Mar 21","Mar 25","Mar 28"]; }
-
+  calendar.innerHTML="";
+  let dates=[];
+  if(selectedService==="normal"){dates=["Mar 5"];}
+  if(selectedService==="urgent"){dates=["Feb 16","Feb 18","Feb 22","Feb 25"];}
+  if(selectedService==="sms"){dates=["Mar 16","Mar 21","Mar 25","Mar 28"];}
   dates.forEach(d=>{
-    let div = document.createElement("div");
-    div.className = "date";
-    div.innerText = d;
-    div.onclick = ()=>{
-      selectDate(div,d);
-    };
+    let div=document.createElement("div");
+    div.className="date";
+    div.innerText=d;
+    div.onclick=()=>selectDate(div,d);
     calendar.appendChild(div);
   });
 }
@@ -162,43 +114,37 @@ function loadDates(){
 function selectDate(el,date){
   document.querySelectorAll('.date').forEach(d=>d.classList.remove('selected'));
   el.classList.add('selected');
-  selectedDate = date;
+  selectedDate=date;
   showTimeSlots();
 }
 
 function showTimeSlots(){
-  timeslotContainer.innerHTML = "";
+  timeslotContainer.innerHTML="";
   timeSlots.forEach(t=>{
-    let btn = document.createElement("button");
-    btn.innerText = t;
-    btn.onclick = ()=>{
+    let btn=document.createElement("button");
+    btn.innerText=t;
+    btn.onclick=()=>{
       document.querySelectorAll('.timeslot button').forEach(b=>b.classList.remove('selected'));
       btn.classList.add('selected');
-      selectedTime = t;
+      selectedTime=t;
     };
     timeslotContainer.appendChild(btn);
   });
 }
 
 function submitForm(){
-  if(!selectedDate || !selectedTime){
-    alert("Please select date and time slot");
-    return;
-  }
-  document.getElementById("form").style.display = "none";
-  document.getElementById("success").style.display = "block";
-  document.querySelector(".whatsapp-icon").style.display = "flex";
+  const passport=document.getElementById("passport").value.trim();
+  const visa=document.getElementById("visa").value.trim();
+  if(!passport){alert("Please enter Passport Number");return;}
+  if(!visa||!/^\d{12}$/.test(visa)){alert("Visa Number must be 12 digits");return;}
+  if(!selectedDate||!selectedTime){alert("Please select date and time slot");return;}
+  document.getElementById("form").style.display="none";
+  document.getElementById("otpScreen").style.display="block";
 }
 
 function openWhatsApp(){
-  let msg = `📩 Documents Send Now
-🛂 Passport Copy
-📄 Visa Number
-✅ Case proceed kar deta hoon, Insh'Allah.
-⏳ Jese hi update ayegi, aapko inform kar dunga.
-🔔 Bas reminder karate rehna taa keh koi delay na ho.
-🤝 Shukriya for cooperation`;
-  window.open(`https://wa.me/923122631695?text=${encodeURIComponent(msg)}`, "_blank");
+  let msg="Thank you for booking your QVC appointment. We will send you the details and contact you shortly.";
+  window.open(`https://wa.me/923122631695?text=${encodeURIComponent(msg)}`,"_blank");
 }
 
 loadDates();
